@@ -6,6 +6,15 @@ echo "please run the script with root user"
 exit 1
 fi
 
+validate() {
+if [ $2 -eq 0 ]; then
+echo "mysql is install success"
+else
+echo "mysql is not installed"
+exit 1
+fi
+}
+
 #echo "I am continuing"
 dnf list installed mysql
 if [ $? -eq 0 ]; then
@@ -14,10 +23,5 @@ else
 echo "Installing mysql"
 
 dnf install mysql -y
-if [ $? -eq 0 ]; then
-echo "mysql is install success"
-else
-echo "mysql is not installed"
-exit 1
-fi
+validate mysql $?
 fi
