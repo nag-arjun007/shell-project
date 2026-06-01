@@ -28,6 +28,6 @@ do
         dnf install $package -y &>> $LOGS_FILE
         validate "installing $package" $?
     else
-        echo "$package already installed ... skipping"
+        echo "$TIMESTAMP [INFO] $package already installed ... skipping"
     fi         
 done    
