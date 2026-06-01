@@ -10,9 +10,9 @@ fi
 
 validate(){
     if [ $2 -eq 0 ]; then
-       echo "$1 is install success"
+       echo "$1 is install success" | tee -a $LOGS_FILE
     else
-       echo "$1 is not installed .. failure"
+       echo "$1 is not installed .. failure" | tee -a $ LOGS_FILE
        exit 1
     fi
 }
