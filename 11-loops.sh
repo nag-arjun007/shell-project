@@ -2,6 +2,7 @@
 USER=$(id -u)
 LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log"
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
 if [ $USER -ne 0 ]; then
     echo "please run the script with root user"
@@ -10,9 +11,9 @@ fi
 
 validate(){
     if [ $2 -eq 0 ]; then
-       echo "$1 is install success" | tee -a $LOGS_FILE
+       echo "$TIMESTAMP [INFO] $1 is install success" | tee -a $LOGS_FILE
     else
-       echo "$1 is not installed .. failure" | tee -a $LOGS_FILE
+       echo "$TIMESTAMP [ERROR] $1 is not installed .. failure" | tee -a $LOGS_FILE
        exit 1
     fi
 }
