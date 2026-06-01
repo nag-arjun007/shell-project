@@ -20,3 +20,4 @@ else
 echo "mysql is not installed"
 exit 1
 fi
+fi
