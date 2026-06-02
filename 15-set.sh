@@ -10,7 +10,7 @@ Y="\e[33m"
 B="\e[34m"
 N="\e[0m"
 
-trap 'echo "error at $LINENO, command: $BASH_COMMAND"' ERR
+trap 'echo "error at $LINENO", command: $BASH_COMMAND"' ERR
 
 if [ $USER -ne 0 ]; then
     echo -e "$Y please run the script with root user $N"
